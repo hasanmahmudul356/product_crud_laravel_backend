@@ -43,11 +43,12 @@ class ProductController extends Controller
                 return response()->json($this->returnData(3000, $validate->errors(), 'Validation Failed'));
             }
 
-            $this->model->fill($input)->save();
+            $this->model->fill($input);
+            $this->model->save();
 
             return response()->json($this->returnData(2000, $this->model, 'Successfully Inserted'));
         } catch (\Exception $exception) {
-            return response()->json($this->returnData(2000, $exception->getMessage(), 'Something Wrong'));
+            return response()->json($this->returnData(5000, $exception->getMessage(), 'Something Wrong'));
         }
     }
 
