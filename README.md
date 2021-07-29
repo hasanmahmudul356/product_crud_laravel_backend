@@ -6,6 +6,7 @@
 - Switch to git folder that download from git
 - branch name "master"
 - then run following command on current directory
+- Copy ".env.example" to ".env"
 - need to create new db for (Authentication and Admin) and set db name to env
 
 ####### COMMAND
@@ -14,6 +15,8 @@
 composer update
 
 php artisan migrate
+
+php artisan jwt:secret -(optional)
 ```
 
 ####### For test data run the command below
