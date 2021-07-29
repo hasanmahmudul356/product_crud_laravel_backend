@@ -18,10 +18,17 @@ class ProductController extends Controller
         $this->model = new Product();
     }
 
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $data = $this->model->orderBy('id', 'DESC')->paginate(20);
+            $data = $this->model->where(function ($query) use ($request){
+                if ($request->category_id){
+                    $query->where('category_id', $request->category_id);
+                }
+                if ($request->keyword){
+                    $query->where('title', 'LIKE', "%$request->keyword%");
+                }
+            })->orderBy('id', 'DESC')->paginate(20);
             return response()->json($this->returnData(2000, $data));
         } catch (\Exception $exception) {
             return response()->json($this->returnData(2000, $exception->getMessage(), 'Something Wrong'));

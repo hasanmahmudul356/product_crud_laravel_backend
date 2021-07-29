@@ -15,6 +15,7 @@ Route::middleware(['api'])->group(function () {
     Route::post('general', [GeneralController::class, 'index']);
 
     Route::get('products', [FrontendController::class, 'products']);
+    Route::get('products/{id}', [FrontendController::class, 'productDetails']);
     Route::get('categories', [FrontendController::class, 'categories']);
 });
 

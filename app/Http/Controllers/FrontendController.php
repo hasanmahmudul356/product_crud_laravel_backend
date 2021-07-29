@@ -24,6 +24,16 @@ class FrontendController extends Controller
             return response()->json($this->returnData(2000, $exception->getMessage(), 'Something Wrong'));
         }
     }
+    public function productDetails($id)
+    {
+        try {
+            $data = Product::where('id', $id)->first()->toArray();
+            $data['latest']  = Product::orderBy('id', 'DESC')->take(4)->get();
+            return response()->json($this->returnData(2000, $data));
+        } catch (\Exception $exception) {
+            return response()->json($this->returnData(2000, $exception->getMessage(), 'Something Wrong'));
+        }
+    }
 
     public function categories()
     {
