@@ -18,4 +18,8 @@ class Category extends Model
             'title' => !$id ? 'required|unique:categories,title' : 'required|unique:categories,title,'.$id,
         ];
     }
+
+    public function product(){
+        return $this->hasMany(Product::class, 'category_id', 'id');
+    }
 }

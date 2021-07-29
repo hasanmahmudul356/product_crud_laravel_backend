@@ -87,14 +87,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         try {
-            $exist = $this->model->where('id', $id)->first();
+            $exist = $this->model->whereDoesntHave('product')->where('id', $id)->first();
             if ($exist) {
                 $exist->delete();
 
                 return response()->json($this->returnData(2000, $exist, 'Successfully Deleted'));
             }
 
-            return response()->json($this->returnData(5000, null, 'Not Deleted'));
+            return response()->json($this->returnData(5000, null, 'Category Not Deleted'));
         } catch (\Exception $exception) {
             return response()->json($this->returnData(2000, $exception->getMessage(), 'Something Wrong'));
         }

@@ -28,6 +28,7 @@ class FrontendController extends Controller
     {
         try {
             $data = Product::where('id', $id)->first()->toArray();
+            $data['image_url'] = !empty($data['image']) ?  route('image_view', ['w'=>1500,'img'=>$data['image']]) : '';
             $data['latest']  = Product::orderBy('id', 'DESC')->take(4)->get();
             return response()->json($this->returnData(2000, $data));
         } catch (\Exception $exception) {
