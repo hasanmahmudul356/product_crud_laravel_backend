@@ -1,4 +1,4 @@
-##  Backend installation
+##  Installation
 
 ##### Following steps need to follow to run this project:
 
