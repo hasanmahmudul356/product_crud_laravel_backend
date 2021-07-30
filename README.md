@@ -34,8 +34,10 @@ php artisan db:seed
 
 ####### Api List
 
+
+
 | Name |  METHOD | API | Authentication |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Registration | POST | api/registration  | NO |
 | Login | POST | api/login  |NO |
 | User Logout | POST | api/auth/logout  | YES |
