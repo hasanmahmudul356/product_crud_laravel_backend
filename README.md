@@ -9,7 +9,7 @@
 - Copy ".env.example" to ".env"
 - need to create new db for (Authentication and Admin) and set db name to env
 
-####### COMMAND
+###### COMMAND
 
 ```
 composer update
@@ -19,22 +19,20 @@ php artisan migrate
 php artisan jwt:secret -(optional)
 ```
 
-####### For test data run the command below
+###### For test data run the command below
 ```
 php artisan db:seed
 
 ```
 
-####### Test Access
+###### Test Access
 ```
 'email' : superuser@gmail.com
 'password' : 123456
 
 ```
 
-####### Api List
-
-
+###### Api Information
 
 | Name |  METHOD | API | Authentication |
 | --- | --- | --- | --- |
